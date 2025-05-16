@@ -19,7 +19,7 @@ with open("config.json", mode="r", encoding="utf-8") as read_file:
 
 parser = argparse.ArgumentParser(description="RAG example using langchain & Chromadb")
 def parse_arguments():
-    parser.add_argument("--model", type=str, default="llama3.2", help="Name of the model to use")
+    parser.add_argument("--model", type=str, default="gemma3", help="Name of the model to use")
     parser.add_argument("--ingestion-folder", type=str, default="./ingest", help="Folder to ingest documents from")
     parser.add_argument("--database-folder", type=str, default="./database", help="Folder to store the database")
     parser.add_argument("--system-prompt", type=str, default=config["llm_options"]["system_prompt"], help="System prompt for the ai model to use")
@@ -61,7 +61,7 @@ def main():
     print("Welcome, type 'help' for help and 'exit' to exit.")
     try:
         while True:
-            user_input = input(">> ")
+            user_input = input(">> What do you want to know? ")
             if user_input == "exit":
                 observer.stop()
                 print("Goodbye!")
